@@ -1,0 +1,23 @@
+ALTER TABLE empleados
+ADD COLUMN numero_cuenta VARCHAR(20); -- Cambia el tamaño según tus necesidades
+
+
+UPDATE empleados
+SET numero_cuenta = CASE
+    WHEN id = 40 THEN '1234567890'
+    WHEN id = 41 THEN '2345678901'
+    WHEN id = 42 THEN '3456789012'
+    WHEN id = 43 THEN '4567890123'
+    WHEN id = 44 THEN '5678901234'
+    WHEN id = 45 THEN '6789012345'
+    WHEN id = 46 THEN '7890123456'
+    WHEN id = 47 THEN '8901234567'
+    WHEN id = 48 THEN '9012345678'
+    WHEN id = 49 THEN '0123456789'
+    WHEN id = 50 THEN '1234509876'
+    WHEN id = 51 THEN '2345610987'
+    WHEN id = 52 THEN '3456721098'
+    WHEN id = 53 THEN '4567832109'
+    ELSE numero_cuenta -- Si no está entre 40 y 53, no cambiará
+END
+WHERE id BETWEEN 40 AND 53;
